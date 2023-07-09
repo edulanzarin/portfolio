@@ -65,8 +65,6 @@ coloredLetters.forEach(letter => {
   spanElement.appendChild(letter);
 });
 
-// Seletor para o botão de modo noturno
-// Seletor para o botão de modo noturno
 const darkModeButton = document.getElementById('dark-mode-button');
 
 const toggle = document.getElementById('dark-mode-button');
@@ -85,8 +83,41 @@ function toggleDarkMode() {
   var textEduardo = document.querySelector('.eduardo');
   var iconNight = document.querySelectorAll('.icons a');
   var navNight = document.querySelectorAll('.nav-items li a');
-
   var isDarkMode = body.classList.toggle('dark-mode');
+  const cards = document.querySelectorAll('.card');
+  var javaElement = document.querySelector('.java');
+  var pythonElement = document.querySelector('.python');
+  var phpElement = document.querySelector('.php');
+  var frontendElement = document.querySelector('.frontend');
+  var databaseElement = document.querySelector('.database');
+  var gitElement = document.querySelector('.git');
+  var contentElement = document.querySelectorAll('.content');
+  var moreElement = document.querySelectorAll('.more');
+  var timelineDark = document.querySelectorAll('.center-line, .sec-about, .icon, .scroll-icon');
+
+  timelineDark.forEach( element => {
+    element.classList.toggle('timeline-dark');
+  })
+
+  moreElement.forEach(element => {
+    element.classList.toggle('more-dark');
+  })
+  
+  contentElement.forEach(element => {
+    element.classList.toggle('content-dark');
+  })
+  
+  javaElement.classList.toggle('java-dark');
+  pythonElement.classList.toggle('python-dark');
+  phpElement.classList.toggle('php-dark');
+  frontendElement.classList.toggle('frontend-dark');
+  databaseElement.classList.toggle('database-dark');
+  gitElement.classList.toggle('git-dark');
+
+  cards.forEach(card => {
+    card.classList.add('card-night');
+  });
+
   header.classList.toggle('dark-mode');
   textElements.forEach(element => {
     element.classList.toggle('white-text');
@@ -104,9 +135,16 @@ function toggleDarkMode() {
     element.classList.toggle('nav-night');
   });
 
-  // Verifica se está no modo noturno
+  var cardElements = document.querySelectorAll('.card');
+
   if (isDarkMode) {
-    // Lógica para definir a cor do texto no modo noturno
+  } else {
+    cardElements.forEach(card => {
+      card.classList.remove('card-night');
+    });
+
+  }
+  if (isDarkMode) {
     var spanElement = document.querySelector('.forth-line span');
     var text = spanElement.textContent;
     var letters = text.split('');
