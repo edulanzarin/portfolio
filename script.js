@@ -77,7 +77,7 @@ toggle.onclick = function(){
 function toggleDarkMode() {
   var body = document.body;
   var header = document.querySelector('header');
-  var textElements = document.querySelectorAll('.bolinhas, .forth-line span, .first-line, .second-line');
+  var textElements = document.querySelectorAll('header nav .logo, .bolinhas, .forth-line span, .first-line, .second-line');
   var imgDiv = document.querySelector('.img');
   var bolinhas = document.querySelectorAll('.bolinhas');
   var textEduardo = document.querySelector('.eduardo');
@@ -94,6 +94,11 @@ function toggleDarkMode() {
   var contentElement = document.querySelectorAll('.content');
   var moreElement = document.querySelectorAll('.more');
   var timelineDark = document.querySelectorAll('.center-line, .sec-about, .icon, .scroll-icon');
+  var formDark = document.querySelectorAll('.container-contact .contactInfo, .contactForm, .contactForm h2, .container-contact .contactForm .formBox .inputBox');
+
+  formDark.forEach(element => {
+    element.classList.toggle('form-dark');
+  })
 
   timelineDark.forEach( element => {
     element.classList.toggle('timeline-dark');
@@ -243,6 +248,67 @@ for (let i = 0; i<more.length; i++) {
     more[i].parentNode.classList.toggle('active-more')
   })
 }
+
+var navItems = document.querySelectorAll('.nav-items li a');
+    var sections = document.querySelectorAll('.section');
+    
+    function changeActiveLink() {
+      var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      sections.forEach(function(section) {
+        var sectionTop = section.offsetTop;
+        var sectionHeight = section.offsetHeight;
+        var sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          navItems.forEach(function(item) {
+            item.classList.remove('active');
+          });
+          
+          var correspondingLink = document.querySelector('a[href="#' + sectionId + '"]');
+          if (correspondingLink) {
+            correspondingLink.classList.add('active');
+          }
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', changeActiveLink);
+
+    function sendEmail () {
+      Email.send ({
+          Host : "smtp.elasticemail.com",
+          Username : "duduflbdudu@gmail.com",
+          Password : "5F2C4D3DFCDD938CD0E6F3BCB646E7B5A46F",
+          To : 'edulanzarin@outlook.com',
+          From : 'duduflbdudu@gmail.com',
+          Subject : "Página",
+          Body : "Name: " + document.getElementById("name").value
+          + "<br> Email: " + document.getElementById("email").value
+          + "<br> Phone number: " + document.getElementById("number").value
+          + "<br> Message: " + document.getElementById("message").value
+      }).then(
+        message => {
+          console.log("Email enviado com sucesso!");
+        }
+      );
+      }
+
+      function proxCampo(event, proximo) {
+        if (event.keyCode === 13) {
+          if (event.target.tagName.toLowerCase() === 'textarea') {
+            return; // Permite a quebra de linha no campo de texto
+          }
+    
+          event.preventDefault(); // Impede o comportamento padrão da tecla "Enter"
+    
+          if (proximo === 'submit') {
+            document.querySelector('.contactForm form').submit(); // Envia o formulário
+          } else {
+            document.getElementById(proximo).focus(); // Vai para o próximo campo
+          }
+        }
+      }
 
 // Chama a função de configuração do botão de modo noturno quando o documento estiver pronto
 document.addEventListener('DOMContentLoaded', setupDarkModeButton);

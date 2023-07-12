@@ -28,6 +28,7 @@ body {
 #skills {
     width: 100%;
     min-height: 100vh;
+    margin-bottom: 100px;
 }
 
 #contact {
@@ -65,8 +66,38 @@ header nav {
 .nav-items {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 70%;
+    /* margin-left: -10%; */
 }
+
+.logo {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 15%;
+    position: relative;
+}
+
+.logo::before {
+    content: 'edu';
+    font-size: 2em;
+    font-weight: 800;
+    text-transform: capitalize;
+    color: #3d535f;
+}
+
+header nav .logo.white-text::before {
+    color: rgb(224, 224, 224);
+}
+
+.logo::after {
+    content: '.';
+    font-size: 2.5em;
+    margin-top: 5px;
+    font-weight: 1000;
+    color: rgb(0, 110, 255);
+}
+
 
 .nav-items li {
     display: flex;
@@ -89,6 +120,17 @@ header nav {
     color: rgb(0, 110, 255);
 }
 
+@media screen and (max-width: 660px) {
+    .logo::before {
+        content: 'e';
+        font-size: 1.5em;
+    }
+    .nav-items li a {
+        font-size: 0.8em;
+     
+    }
+ }
+
 @media screen and (max-width: 495px) {
    .forth-line span {
     font-size: 35px;
@@ -96,7 +138,7 @@ header nav {
 }
 
 .home {
-    padding-top: 150px;
+    padding-top: 200px;
     width: 100%;
     height: 100vh;
     min-height: 700px;
@@ -274,15 +316,16 @@ header nav {
 
 .botao {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    width: 15%;
 }
   
 #dark-mode-button {
     position: relative;
     display: block;
-    width: 50px;
-    height: 25px;
+    width: 40px;
+    height: 20px;
     border-radius: 30px;
     transition: 0.5s;
     box-shadow: inset 0 9px 60px rgba(44, 44, 46, 1),
@@ -296,8 +339,8 @@ header nav {
     position: absolute;
     top: 0;
     left: 0;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: linear-gradient(to bottom, #ffffff, #e0dcdc);
     border-radius: 50%;
     transform: scale(0.9);
@@ -310,8 +353,8 @@ header nav {
 #dark-mode-button.active {
     position: relative;
     display: block;
-    width: 50px;
-    height: 25px;
+    width: 40px;
+    height: 20px;
     border-radius: 25px;
     transition: 0.5s;
     box-shadow: inset 0 2px 30px rgba(224, 224, 224, 1),
@@ -322,7 +365,25 @@ header nav {
 }
 
 #dark-mode-button.active .indicator {
-    left: 25px;
+    left: 20px;
+}
+
+@media(max-width: 600px) {
+    #dark-mode-button.active .indicator {
+        left: 15px;
+    }
+    #dark-mode-button.active {
+        width: 30px;
+        height: 15px;
+    }
+    #dark-mode-button .indicator {
+        width: 15px;
+        height: 15px;
+    }
+    #dark-mode-button {
+        width: 30px;
+        height: 15px;
+    }
 }
 
 #dark-mode-button .indicator.indicator-dark {
@@ -350,12 +411,15 @@ header nav {
     background-color: #fff;
     /* border: 1px solid #3d535f; */
     box-shadow: 20px 20px 30px -30px rgb(141, 141, 141);
+    border-radius: 12px;
+    /* transition: 0.5s; */
 }
 
 .container .card-night {
     background-color: #2f2f30;
     /* border: 1px solid #fff; */
     box-shadow: 20px 20px 30px -30px rgb(0, 0, 0);
+    /* transition: 0.5s; */
 }
 
 .container .card::before {
@@ -366,11 +430,13 @@ header nav {
     border: 20px solid transparent;
     border-top: 20px solid rgb(103, 174, 255);
     border-right: 20px solid rgb(103, 174, 255);
+    /* transition: 0.5s; */
 }
 
 .container .card.active-more::before {
     border-top: 20px solid rgb(0, 110, 255);
     border-right: 20px solid rgb(0, 110, 255);
+    /* transition: 0.5s; */
 }
 
 .container .card .icon {
@@ -470,10 +536,12 @@ header nav {
     width: 100%;
     height: 100px;
     background: linear-gradient(transparent, #fff);
+    /* transition: 0.5s; */
 } 
 
 .container .card .content-dark::before {
     background: linear-gradient(transparent, #2f2f30);
+    transition: 0.5s;
 }
 
 .container .card.active-more .content::before {
@@ -485,19 +553,23 @@ header nav {
     font-size: 1.4em;
     font-weight: 600;
     margin-bottom: 10px;
+    transition: 0.5s;
 }
 
 .container .card .content-dark h3 {
     color: rgba(224, 224, 224, 1);
+    transition: 0.5s;
 }
   
 .container .card .content p {
     font-weight: 300;
     color: #3d535f;
+    transition: 0.5s;
 }
 
 .container .card .content-dark p {
     color: rgba(224, 224, 224, 1);
+    transition: 0.5s;
 }
 
 .container .card .more {
@@ -512,16 +584,19 @@ header nav {
     font-weight: 500;
     letter-spacing: 2px;
     font-size: 14px;
+    /* transition: 0.5s; */
 }
 
 .container .card .more-dark {
     background-color: rgb(103, 174, 255);
     color: #2f2f30;
+    transition: 0.5s;
 }
 
 .container .card.active-more .more {
     background-color: rgb(0, 110, 255);
     color: #fff;
+    /* transition: 0.5s; */
 }
 
 
@@ -535,8 +610,8 @@ header nav {
 }
 
 #about {
-    padding-top: 50px;
-    margin-bottom: 200px;
+    padding-top: 30px;
+    margin-bottom: 250px;
 }
 
 .sec-about {
@@ -558,6 +633,7 @@ header nav {
     left: 50%;
     top: 20px;
     transform: translateX(-50%);
+    transition: 0.5s;
 }
 
 .container-about .row {
@@ -583,6 +659,7 @@ header nav {
     position: relative;
     /* box-shadow: 20px 20px 30px -30px rgb(0, 0, 0); */
     box-shadow: 20px 20px 30px -30px rgb(141, 141, 141);
+    /* transition: 0.5s; */
 }
 
 .container-about .row .sec-about::before {
@@ -594,6 +671,7 @@ header nav {
     top: 28px;
     z-index: -1;
     transform: rotate(45deg);
+    transition: 0.5s;
 }
 
 .row .sec-about .icon, .center-line .scroll-icon {
@@ -606,6 +684,7 @@ header nav {
     border-radius: 50%;
     color: #f6f6ff;
     box-shadow: 0 0 0 4px rgb(103, 174, 255), inset 0 2px 0 rgba(173, 216, 230, 0.08), 0 3px 0 4px rgba(173,216,230,0.05);
+    transition: 0.5s;
 }
 
 .center-line .scroll-icon {
@@ -697,25 +776,332 @@ header nav {
     background-color: rgb(0, 18, 39);
     color: #f6f6ff;
     box-shadow: 20px 20px 30px -30px black;
-    
+    transition: 0.5s;
 }
 
 .row .sec-about .icon.timeline-dark {
     background-color: rgb(0, 18, 39);
     color: #f6f6ff;
     box-shadow: 0 0 0 4px rgb(0, 18, 39), inset 0 2px 0 rgba(0, 18, 39, 0.08), 0 3px 0 4px rgba(0, 18, 39, 0.05);
+    transition: 0.5s;
 }
 
 .center-line .timeline-dark {
     background-color: rgb(0, 18, 39);
     color: #f6f6ff;
     box-shadow: 0 0 0 4px rgb(0, 18, 39), inset 0 2px 0 rgba(0, 18, 39, 0.08), 0 3px 0 4px rgba(0, 18, 39, 0.05);
+    transition: 0.5s;
 }
 
 .container-about .timeline-dark {
     background-color: rgb(0, 18, 39);
+    transition: 0.5s;
 }
 
 .container-about .row .timeline-dark::before {
     background-color: rgb(0, 18, 39);
+    transition: 0.5s;
+}
+
+header .nav-items .active {
+    color: rgb(0, 110, 255);
+}
+
+header .nav-items .dark {
+    color: cyan;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container-contact {
+    position: relative;
+    min-width: 1100px;
+    min-height: 550px;
+    display: flex;
+    z-index: 1000;
+}
+
+.container-contact .contactInfo {
+    position: absolute;
+    top: 40px;
+    width: 350px;
+    height: calc(100% - 80px);
+    background-color: rgb(0, 110, 255);
+    z-index: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+    transition: 0.5s;
+}
+
+.container-contact .contactInfo.form-dark {
+    background-color: rgb(5, 36, 71);
+}
+
+.container-contact .contactInfo h2 {
+    color: #f6f6ff;
+    font-size: 24px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+.container-contact .contactInfo ul.info {
+    position: relative;
+    margin: 20px 0;
+}
+
+.container-contact .contactInfo ul.info li {
+    position: relative;
+    list-style: none;
+    display: flex;
+    margin: 20px 0;
+    cursor: pointer;
+    align-items: flex-start;
+}
+
+.container-contact .contactInfo ul.info li span:nth-child(1) {
+    width: 30px;
+    min-width: 30px;
+}
+
+.container-contact .contactInfo ul.info li span:nth-child(1) img {
+    max-width: 100%;
+    filter: invert(1);
+}
+
+.container-contact .contactInfo ul.info li span:nth-child(2) {
+    color: #f6f6ff;
+    margin-left: 10px;
+    font-weight: 300;
+    transition: 0.5s;
+}
+
+.container-contact .contactInfo ul.sci {
+    position: relative;
+    display: flex;
+}
+
+.container-contact .contactInfo ul.sci li {
+    list-style: none;
+    margin-right: 15px;
+}
+
+.container-contact .contactInfo ul.sci li a {
+    text-decoration: none;
+    color: #f6f6ff;
+    transition: 0.5s;
+}
+
+.container-contact .contactForm {
+    position: absolute;
+    padding: 70px 50px;
+    padding-left: 250px;
+    margin-left: 150px;
+    width: calc(100% - 80px);
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 50px 50px rgba(0,0,0,0.25);
+    transition: 0.5s;
+}
+
+.container-contact .contactForm.form-dark {
+    background-color: #2f2f30;
+    transition: 0.5s;
+}
+
+.container-contact .contactForm h2 {
+    color: rgb(0, 110, 255);
+    font-size: 24px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.container-contact .contactForm.form-dark h2 {
+    color: #f6f6ff;
+    transition: 0.5s;
+}
+
+.container-contact .contactForm .formBox {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+
+.container-contact .contactForm .formBox .inputBox {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.container-contact .contactForm .formBox .inputBox.w50 {
+    width: 47%;
+}
+
+.container-contact .contactForm .formBox .inputBox.w100 {
+    width: 100%;
+}
+
+.contactForm .formBox .first {
+    width: 100%;
+}
+
+.container-contact .contactForm .formBox .inputBox input,
+.container-contact .contactForm .formBox .inputBox textarea {
+    width: 100%;
+    resize: none;
+    padding: 5px 0;
+    font-size: 18px;
+    font-weight: 300;
+    color: #333;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #777;
+    transition: 0.5s;
+}
+
+.container-contact .contactForm .formBox .inputBox textarea {
+    height: 120px;
+    /* background-color: #f6f6ff; */
+    color: #333;
+    /* transition: 0.5s; */
+}
+
+.container-contact .contactForm .formBox .inputBox.form-dark textarea {
+    background-color: #2f2f30;
+    color: #f6f6ff;
+}
+
+.container-contact .contactForm .formBox .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    pointer-events: none;
+    font-size: 18px;
+    font-weight: 300;
+    color: #333;
+    transition: 0.5s;
+}
+
+.container-contact .contactForm .formBox .inputBox.form-dark span {
+    color: #f6f6ff;
+}
+
+.container-contact .contactForm .formBox .inputBox.form-dark input {
+    background-color: #2f2f30;
+    color: #f6f6ff;
+    transition: 0.5s;
+}
+
+.container-contact .contactForm .formBox .inputBox input:focus ~ span,
+.container-contact .contactForm .formBox .inputBox input:valid ~ span,
+.container-contact .contactForm .formBox .inputBox textarea:focus ~ span,
+.container-contact .contactForm .formBox .inputBox textarea:valid ~ span {
+    transform: translateY(-20px);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    /* color: rgb(103, 174, 255); */
+    font-weight: 500;
+    /* transition: 0.5s; */
+}
+
+.container-contact .contactForm .formBox .inputBox input[type="submit"] {
+    position: relative;
+    cursor: pointer;
+    background-color: rgb(0, 110, 255);
+    color: #f6f6ff;
+    border: none;
+    max-width: 150px;
+    padding: 12px;
+    font-weight: 400;
+    transition: 0.5s;
+}
+
+.container-contact .contactForm .formBox .inputBox.form-dark input[type="submit"] {
+    color: #f6f6ff;
+    background-color: rgb(5, 36, 71);
+    transition: 0.5s;
+}
+
+.container-contact .contactForm .formBox .inputBox input[type="submit"]:hover {
+    background-color: rgb(103, 174, 255);
+}
+
+.container-contact .contactForm .formBox .inputBox.form-dark input[type="submit"]:hover {
+    background-color: rgb(8, 59, 117);
+}
+
+@media (max-width: 1200px) {
+    .container-contact {
+        width: 90%;
+        min-width: auto;
+        margin: 20px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+    .container-contact .contactInfo {
+        top: 0;
+        height: 550px;
+        position: relative;
+        box-shadow: none;
+    }
+    .container-contact .contactForm {
+        position: relative;
+        width: calc(100% - 350px);
+        padding-left: 40px;
+        margin-left: 0;
+        height: 550px;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 991px) {
+   .contact::before {
+    display: none;
+   }
+   .container-contact {
+    display: flex;
+    flex-direction: column-reverse;
+   }
+   .container-contact .contactForm {
+    width: 100%;
+    height: auto;
+    padding: 25px;
+   }
+   .container-contact .contactInfo {
+    width: 100%;
+    flex-direction: row;
+    height: auto;
+   }
+   .container-contact .contactInfo ul.sci {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+}
+
+@media (max-width: 600px) {
+    .container-contact .contactForm {
+        padding: 25px;
+    }
+
+    .container-contact .contactInfo {
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .container-contact .contactInfo ul.sci {
+        margin-top: 40px;
+    }
+    .container-contact .contactForm .formBox .inputBox.w50 {
+        width: 100%;
+    }
 }
